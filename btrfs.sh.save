@@ -1,0 +1,22 @@
+#!/bin/bash
+
+echo "BTRFS"
+mkfs.btrfs -L data /dev/sda12
+mount /dev/sda12 /mnt/btrfs
+df -h /mnt/btrfs
+btrfs subvolume create /mnt/btrfs/@root
+btrfs subvolume create /mnt/btrfs/@home
+btrfs subvolume create /mnt/btrfs/@snapshots
+btrfs subvolume create /mnt/btrfs/@var
+
+
+umount /mnt/btrfs
+mount -o noatime,compress=lzo,space_cache,subvol=@root /dev/sda12 /mnt/btrfs
+mkdir /mnt/btrfs/{boot,var,home,.snapshots}
+mount -o noatime,compress=lzo,space_cache,subvol=@var /dev/sda12 /mnt/btrfs/var
+mount -o noatime,compress=lzo,space_cache,subvol=@home /dev/sda12 /mnt/btrfs/home
+mount -o noatime,compress=lzo,space_cache,subvol=@snapshots /dev/sda12 /mnt/btrfs/.snapsh
+>
+
+echo "MOUNT"
+mount /dev/sda12 /mnt/btrfs

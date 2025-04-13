@@ -1,0 +1,21 @@
+#!/bin/bash
+#update
+
+#sudo pacman -Syy
+#fastfetch
+#packages
+#imp
+sudo pacman -S git neovim nano zip tar gnome-disk-utility  notepadqq timeshift xorg-xkill testdisk fish feh blueman speedtest-cli  cups system-config-printer ark falkon rhythmbox nitrogen gnome-screenshot   
+
+
+#auto-cpufreq
+#cd
+#git clone https://github.com/AdnanHodzic/auto-cpufreq.git
+#cd auto-cpufreq  
+#sudo ./auto-cpufreq-installer
+#auto-cpufreq --install 
+
+#bluetooth
+
+#systemctl enable bluetooth
+

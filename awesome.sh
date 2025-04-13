@@ -1,0 +1,24 @@
+#!/bin/bash
+
+yay -S awesome rofi picom i3lock-fancy xclip ttf-roboto polkit-gnome materia-theme lxappearance flameshot pnmixer network-manager-applet xfce4-power-manager qt5-styleplugins papirus-icon-theme -y
+
+sudo rm -rf /home/V/.config/awesome
+sudo rm -rf /home/V/.config/rofi
+
+echo "CLONE CONFIG"
+git clone https://github.com/ChrisTitusTech/titus-awesome ~/.config/awesome
+
+echo "THEME ROFI "
+mkdir -p ~/.config/rofi
+cp $HOME/.config/awesome/theme/config.rasi ~/.config/rofi/config.rasi
+sed -i '/@import/c\@import "'$HOME'/.config/awesome/theme/sidebar.rasi"' ~/.config/rofi/config.rasi
+
+
+#echo "WALLPAPERS"
+#git clone https://gitlab.com/dwt1/wallpapers.git
+#sudo pacman -S nitrogen 
+#sudo cp /m/ved/sda4/sh /home/ved/.config/nitrogen
+#sudo nano /etc/environment
+#XDG_CURRENT_DESKTOP=Unity
+#QT_QPA_PLATFORMTHEME=gtk2
+

@@ -1,0 +1,36 @@
+!#/bin/bash
+echo "''FUCK !' MICROSOFT"
+echo "grub after WINDOWS "
+
+
+echo "mkdirs"
+sudo mkdir /mnt/foo
+sudo mkdir /mnt/boot
+sudo mkdir /mnt/foo/dev
+sudo mkdir /mnt/foo/dev/pts
+sudo mkdir /mnt/foo/proc
+sudo mkdir /mnt/foo/sys
+
+
+ecj
+
+sudo mount /dev/sdb7 /mnt/foo
+sudo mount /dev/sdb11 /mnt/boot
+sudo mount --bind /dev /mnt/foo/dev && 
+sudo mount --bind /dev/pts /mnt/foo/dev/pts && 
+sudo mount --bind /proc /mnt/foo/proc && 
+sudo mount --bind /sys /mnt/foo/sys
+sudo chroot /mnt/foo
+
+
+#sudo grub-mkconfig -o /boot/grub/grub.cfg
+#grub-install /dev/sda
+#grub-install --recheck /dev/sda
+
+#exit
+#sudo umount /mnt/foo/dev/pts /mnt/foo/dev /mnt/foo/proc /mnt/foo/sys /mnt/foo
+
+
+#sudo chroot "/mnt" apt-get purge -y --force-yes grub-common:i386
+#sudo chroot "/mnt" apt-get purge -y --force-yes grub*-common grub-common:i386 shim-signed linux-signed
+
